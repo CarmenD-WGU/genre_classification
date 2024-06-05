@@ -57,7 +57,7 @@ def go(config: DictConfig):
             "main",
             parameters={
                 "reference_artifact": config["data"]["reference_dataset"],
-                "sample_artifact": "raw_data.parquet",
+                "sample_artifact": "preprocess_data.csv:latest",
                 "ks_alpha": config["data"]["ks_alpha"]
             },
         )
@@ -68,7 +68,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "segregate"),
             "main",
             parameters={
-                "input_artifact": "preprocess_data.csv: latest",
+                "input_artifact": "preprocess_data.csv:latest",
                 "artifact_root": "data",
                 "artifact_type": "segregated_data",
                 "test_size": config["data"]["test_size"], 
